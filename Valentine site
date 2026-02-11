@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will you be my Valentine?</title>
+<style>
+  /* Background gradient animation */
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffd1ff, #ffdde1);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    overflow: hidden;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Main heading */
+  h1 {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px 10px #ff6b81;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  /* Buttons */
+  button {
+    padding: 15px 40px;
+    font-size: 20px;
+    margin: 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  #yes {
+    background-color: #ff4d6d;
+    color: #fff;
+  }
+
+  #no {
+    background-color: #777;
+    color: #fff;
+    position: absolute;
+  }
+
+  /* Hover effects */
+  button:hover {
+    transform: scale(1.1);
+  }
+
+  #yes:hover {
+    background-color: #ff6b81;
+  }
+
+</style>
+</head>
+<body>
+
+<h1>Will you be my Valentine? 💖</h1>
+
+<button id="yes">Yes 💕</button>
+<button id="no">No 😢</button>
+
+<script>
+  const noBtn = document.getElementById("no");
+  const yesBtn = document.getElementById("yes");
+
+  // No товч зугтана
+  noBtn.addEventListener("mouseover", function() {
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  });
+
+  // Yes товч дарвал animation, text
+  yesBtn.onclick = function() {
+    document.body.innerHTML = `
+      <h1 style="font-size:4rem; color:#fff; text-shadow:2px 2px 15px #ff6b81;">
+      Yaaay! 💖 I love you! 😘
+      </h1>
+    `;
+    document.body.style.animation = "none";
+    document.body.style.background = "linear-gradient(45deg, #ff9a9e, #ffdde1, #ffd1ff, #ff6b81)";
+  }
+</script>
+
+</body>
+</html>
